@@ -29,26 +29,34 @@ public static class HelloSelenium
                 var rating = tableRow
                     .FindElement(By.ClassName("search_review_summary"))
                     .GetDomAttribute("class");
-                Console.WriteLine($"Avaliação: {rating}");
 
-                // if (rating != null) 
-                // {
-                //     rating = "search_review_summary positive"; 
-                //     Console.WriteLine("Positivo");
-                // }
-                // else
-                // {
-                //     rating = "search_review_summary mixed"; 
-                //     Console.WriteLine("neutro");
-                // }
+                    if (rating.Contains("positive")) 
+                        Console.WriteLine("Avaliação: Positivo");
+                    else if (rating.Contains("mixed"))
+                        Console.WriteLine("Avaliação: Neutro");                    
+                    else                    
+                        Console.WriteLine("Avaliação: Negativo");
+                    
 
                 var price = tableRow
-                    .FindElement(By.ClassName("discount_original_price")).Text;
-                Console.WriteLine($"Valor do jogo: {price}");
+                    .FindElement(By.ClassName("discount_prices"))
+                    .GetDomAttribute("class");
+                    Console.WriteLine($"Avaliação: {price}");
+                    Console.WriteLine("Valor: ");
 
-                var discount = tableRow
-                    .FindElement(By.ClassName("discount_final_price")).Text;
-                Console.WriteLine($"Valor do jogo com desconto: {discount}");
+                   
+
+
+                // var price = tableRow
+                //     .FindElement(By.ClassName("discount_original_price")).Text;
+                // Console.WriteLine($"Valor do jogo: {price}");
+
+                // var discount = tableRow
+                //     .FindElement(By.ClassName("discount_final_price")).Text;
+                // Console.WriteLine($"Valor do jogo com desconto: {discount}");
+
+
+
             }
             catch (System.Exception)
             {
