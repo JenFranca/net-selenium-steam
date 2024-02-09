@@ -21,41 +21,56 @@ public static class HelloSelenium
                 var name = tableRow
                     .FindElement(By.ClassName("title")).Text;
                 Console.WriteLine($"Nome do jogo: {name}");
-                
+
                 var date = tableRow
                     .FindElement(By.ClassName("search_released")).Text;
                 Console.WriteLine($"Data de lançamento: {date}");
-                
+
                 var rating = tableRow
                     .FindElement(By.ClassName("search_review_summary"))
                     .GetDomAttribute("class");
 
-                    if (rating.Contains("positive")) 
-                        Console.WriteLine("Avaliação: Positivo");
-                    else if (rating.Contains("mixed"))
-                        Console.WriteLine("Avaliação: Neutro");                    
-                    else                    
-                        Console.WriteLine("Avaliação: Negativo");
-                    
-
-                var price = tableRow
-                    .FindElement(By.ClassName("discount_prices"))
-                    .GetDomAttribute("class");
-                    Console.WriteLine($"Avaliação: {price}");
-                    Console.WriteLine("Valor: ");
-
-                   
+                if (rating.Contains("positive"))
+                    Console.WriteLine("Avaliação: Positivo");
+                else if (rating.Contains("mixed"))
+                    Console.WriteLine("Avaliação: Neutro");
+                else
+                    Console.WriteLine("Avaliação: Negativo");
 
 
                 // var price = tableRow
-                //     .FindElement(By.ClassName("discount_original_price")).Text;
+                //     .FindElement(By.ClassName("discount_prices"))
+                //     .GetDomAttribute("class");
+                //     Console.WriteLine($"Avaliação: {price}");
+                //     Console.WriteLine("Valor: ");
+
+
+
+
+                var price = tableRow
+                    .FindElement(By.ClassName("discount_original_price")).Text;
+                Console.WriteLine($"Valor do jogo: {price}");
+
+                var discount = tableRow
+                    .FindElement(By.ClassName("discount_final_price")).Text;
+                Console.WriteLine($"Valor do jogo com desconto: {discount}");
+
+                var free = tableRow
+                    .FindElement(By.ClassName("discount_final_price free")).Text;
+                Console.WriteLine($"Valor do jogo com desconto: {free}");
+
+
+
+                // var price = tableRow
+                //    .FindElement(By.ClassName("discount_original_price")).Text;
                 // Console.WriteLine($"Valor do jogo: {price}");
 
-                // var discount = tableRow
-                //     .FindElement(By.ClassName("discount_final_price")).Text;
-                // Console.WriteLine($"Valor do jogo com desconto: {discount}");
-
-
+                // if (price.Contains("discount_final_price"))
+                //     Console.WriteLine($"Valor: {price}");
+                // else (price.Contains("discount_final_price free"))
+                //     Console.WriteLine("Valor: Free");
+                
+                
 
             }
             catch (System.Exception)
