@@ -37,40 +37,23 @@ public static class HelloSelenium
                 else
                     Console.WriteLine("Avaliação: Negativo");
 
-
-                // var price = tableRow
-                //     .FindElement(By.ClassName("discount_prices"))
-                //     .GetDomAttribute("class");
-                //     Console.WriteLine($"Avaliação: {price}");
-                //     Console.WriteLine("Valor: ");
-
-
-
-
                 var price = tableRow
-                    .FindElement(By.ClassName("discount_original_price")).Text;
-                Console.WriteLine($"Valor do jogo: {price}");
-
-                var discount = tableRow
-                    .FindElement(By.ClassName("discount_final_price")).Text;
-                Console.WriteLine($"Valor do jogo com desconto: {discount}");
-
-                var free = tableRow
-                    .FindElement(By.ClassName("discount_final_price free")).Text;
-                Console.WriteLine($"Valor do jogo com desconto: {free}");
-
-
-
-                // var price = tableRow
-                //    .FindElement(By.ClassName("discount_original_price")).Text;
-                // Console.WriteLine($"Valor do jogo: {price}");
-
-                // if (price.Contains("discount_final_price"))
-                //     Console.WriteLine($"Valor: {price}");
-                // else (price.Contains("discount_final_price free"))
-                //     Console.WriteLine("Valor: Free");
+                    .FindElement(By.ClassName("discount_block")).Text;
                 
-                
+                    if (price.Contains("%"))
+                    { // tem desconto
+                        var data = price.Split('\n');
+                        Console.WriteLine ($"Desconto: {data[0]}"); 
+                        Console.WriteLine ($"Valor do jogo: {data[1]}"); 
+                        Console.WriteLine ($"Valor com desconto: {data[2]}"); 
+                    }
+                    else if (price.Contains("free"))
+                        Console.WriteLine($"Valor do jogo: {price}");
+                    else    
+                        Console.WriteLine($"Valor do jogo: {price}");
+
+
+                 Console.WriteLine("----------------------------------------------------");
 
             }
             catch (System.Exception)
