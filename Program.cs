@@ -69,7 +69,12 @@ public static class HelloSelenium
 
         driver.Quit();
 
-        foreach (var jogo in lista)
+        ExibirInfo(lista);
+    }
+
+    static void ExibirInfo(List<Jogo> x)
+    {
+        foreach (var jogo in x)
         {
             Console.WriteLine($"Nome do Jogo: {jogo.Nome}");
             Console.WriteLine($"Data de lançamento: {jogo.Data}");
@@ -91,5 +96,7 @@ public static class HelloSelenium
 
             Console.WriteLine("--------------------------------------------------");
         }
-    }
+    } 
+                
+
 }
