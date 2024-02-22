@@ -74,12 +74,22 @@ public static class HelloSelenium
             Console.WriteLine($"Nome do Jogo: {jogo.Nome}");
             Console.WriteLine($"Data de lançamento: {jogo.Data}");
             Console.WriteLine($"Avaliação: {jogo.Avaliacao}");
-            Console.WriteLine($"Valor Original: {jogo.Valor}");
-            Console.WriteLine($"Desconto: {jogo.Desconto}");
-            Console.WriteLine($"Valor sem desconto: {jogo.ValorJogo}");
-            Console.WriteLine($"Valor com desconto: {jogo.ValorDesconto}");
-            Console.WriteLine($"Gratuito: {jogo.Gratis}");
-            Console.WriteLine("-----------------------------------------------");
+            
+            
+            if (jogo.Valor != null)
+                Console.WriteLine($"Valor Original: {jogo.Valor}");
+            
+            if (jogo.Desconto != null)
+            {
+                Console.WriteLine($"Desconto: {jogo.Desconto}");
+                Console.WriteLine($"Valor sem desconto: {jogo.ValorJogo}");
+                Console.WriteLine($"Valor com desconto: {jogo.ValorDesconto}");
+            }
+
+            if (jogo.Gratis)
+               Console.WriteLine($"Gratuito");             
+
+            Console.WriteLine("--------------------------------------------------");
         }
     }
 }
