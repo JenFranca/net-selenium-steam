@@ -10,11 +10,11 @@ public class Jogo
 
     public string Valor { get; set; }
 
-    public decimal ValorJogo { get; set; }
+    public string ValorJogo { get; set; }
 
-    public int Desconto { get; set; }
+    public string Desconto { get; set; }
 
-    public decimal ValorDesconto { get; set; }
+    public string ValorDesconto { get; set; }
 
     public bool Gratis { get; set; }
 
