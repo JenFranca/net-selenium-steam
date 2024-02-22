@@ -18,4 +18,8 @@ public class Jogo
 
     public bool Gratis { get; set; }
 
+    internal static void Add(Jogo jogo)
+    {
+        throw new NotImplementedException();
+    }
 }

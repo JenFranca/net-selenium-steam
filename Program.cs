@@ -9,7 +9,11 @@ public static class HelloSelenium
     {
         var driver = new ChromeDriver();
 
-        
+        List<Jogo> lista = new List<Jogo>();
+
+        // var jogos = new List<Jogo>();
+
+        // Jogo j1 = new Jogo();
         
         driver.Navigate().GoToUrl("https://store.steampowered.com/search/?filter=topsellers");
 
@@ -28,7 +32,7 @@ public static class HelloSelenium
                 var name = tableRow
                     .FindElement(By.ClassName("title")).Text;
                 Console.WriteLine($"Nome do jogo: {name}");
-                jogo.Nome = name;
+                jogo.Nome = name;                
 
 
                 var date = tableRow
@@ -44,6 +48,7 @@ public static class HelloSelenium
                 {
                     Console.WriteLine("Avaliação: Positivo");
                     jogo.Avaliacao = "Positivo";
+                    
                 }
                 else if (rating.Contains("mixed"))
                 {
@@ -82,6 +87,8 @@ public static class HelloSelenium
                     }
 
                  Console.WriteLine("----------------------------------------------------");
+
+                lista.Add(jogo);
 
             }
             catch (System.Exception)
